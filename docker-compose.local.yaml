@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17
+    restart: always
+    environment:
+      POSTGRES_USER: news_bot_user
+      POSTGRES_PASSWORD: news_bot_password
+      POSTGRES_DB: news_bot_db
+      PGDATA: /var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    volumes:
+      - news_bot_db:/var/lib/postgresql/data/
+
+volumes:
+  news_bot_db:
